@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <title>web speech API - demo</title>
+  </head>
+
+  <body>
+    <h1 class="title">Quizz</h1>
+
+    <div class="quizContainer">
+      <div class="progresContainer">
+        <div class="progressBar">
+          <div class="progressIndicator"></div>
+        </div>
+        <div class="progressNumber">
+          <span class="currentQuestionNumber">0</span>
+          -
+          <span class="totalQuestionNumber">0</span>
+        </div>
+      </div>
+
+      <div class="questionContainer">
+        <h2 class="question"></h2>
+      </div>
+
+      <div class="answersContainer">
+        <ul>
+          <!-- <li class="answered"></li>
+          <li></li>
+          <li></li>
+          <li></li> -->
+        </ul>
+      </div>
+
+      <div class="output">
+        <p>Your answer:</p>
+        <span class="answer">...</span>
+      </div>
+
+      <div class="btn-container">
+        <button id="readBtn">Read Question</button>
+        <button id="confirmBtn">Confirm Answer</button>
+        <button id="speakBtn">Speak</button>
+        <button id="nextBtn">Next Question</button>
+      </div>
+    </div>
+
+    <script defer src="Javascript/main.js"></script>
+  </body>
+</html>
