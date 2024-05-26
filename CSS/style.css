@@ -110,11 +110,15 @@ body {
 }
 
 .answersContainer ul li.answered {
-  background-color: #1ec024;
+  background-color: #676767;
 }
 
 .answersContainer ul li.wrong {
   background-color: #9e0e0e;
+}
+
+.answersContainer ul li.correct {
+  background-color: #0e9e0e;
 }
 
 .output {

@@ -230,6 +230,15 @@ confirmBtn.addEventListener("click", () => {
     quiz[questionCounter].correctAnswer.toLowerCase()
   ) {
     quizSpeak("Correct!");
+
+    answers.forEach((answer, index) => {
+      const answerText = answer.textContent.trim();
+
+      if (answerText.toLowerCase() === playerCurrentAnswer.toLowerCase()) {
+        answer.classList.remove("answered");
+        answer.classList.add("correct");
+      }
+    });
   } else {
     quizSpeak(
       "Wrong, the right answer is: " + quiz[questionCounter].correctAnswer
@@ -247,7 +256,8 @@ confirmBtn.addEventListener("click", () => {
 
       if (answerText === quiz[questionCounter].correctAnswer) {
         // Change the background color of the corresponding list item to green
-        answer.classList.add("answered");
+        answer.classList.remove("answered");
+        answer.classList.add("correct");
       }
     });
   }
@@ -257,10 +267,33 @@ confirmBtn.addEventListener("click", () => {
     speakBtn.style.display = "none";
     nextBtn.style.display = "block";
   };
+
+  if (questionCounter + 1 === quiz.length) {
+    nextBtn.innerText = "Finish";
+  }
 });
 
 nextBtn.addEventListener("click", () => {
   questionCounter++;
+
+  if (questionCounter == quiz.length) {
+    quizSpeak("Congratulations, you have finished the quiz!");
+
+    readBtn.style.display = "none";
+    speakBtn.style.display = "none";
+    confirmBtn.style.display = "none";
+    nextBtn.style.display = "none";
+
+    questionContainer.innerText =
+      "Congratulations, you have finished the quiz!";
+    answersContainer[0].innerHTML = " ";
+
+    playerAnswer.innerHTML = " ";
+
+    setTimeout(() => {
+      location.reload();
+    }, 4000);
+  }
 
   showQuestion(questionCounter, false);
   showAnswers(questionCounter, false);
